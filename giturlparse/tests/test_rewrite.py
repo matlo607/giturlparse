@@ -48,6 +48,10 @@ REWRITE_URLS = (
     ("ssh://www.gerrithub.io:29418/owner/project", "ssh", "ssh://www.gerrithub.io:29418/owner/project"),
     ("ssh://www.gerrithub.io:29418/owner/project", "https", "https://www.gerrithub.io/owner/project"),
     ("https://gerrit.googlesource.com/project", "https", "https://gerrit.googlesource.com/project"),
+    # Sourceware
+    ("https://sourceware.org/git/app/project.git", "https", "https://sourceware.org/git/app/project.git"),
+    ("https://sourceware.org/git/app/project.git", "ssh", "ssh://sourceware.org/git/app/project.git"),
+    ("https://sourceware.org/git/app/project.git", "git", "git://sourceware.org/git/app/project.git"),
     # Generic
     ("git://git.buildroot.net/buildroot", "https", "https://git.buildroot.net/buildroot.git"),
     ("https://git.buildroot.net/buildroot", "git", "git://git.buildroot.net/buildroot.git"),

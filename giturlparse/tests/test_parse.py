@@ -884,6 +884,99 @@ VALID_PARSE_URLS = (
             }
         )
     ),
+    # Sourceware.org
+    (
+        "https",
+        (
+            "https://sourceware.org/git/project.git",
+            {
+                "host": "sourceware.org",
+                "resource": "sourceware.org",
+                "user": "",
+                "port": "",
+                "owner": "",
+                "repo": "project",
+                "name": "project",
+                "groups": [],
+                "path": "",
+                "path_raw": "",
+                "pathname": "/git/project.git",
+                "branch": "",
+                "protocol": "https",
+                "protocols": ["https"],
+                "platform": "sourceware",
+            }
+        )
+    ),
+    (
+        "git",
+        (
+            "git://sourceware.org/git/app/project.git",
+            {
+                "host": "sourceware.org",
+                "resource": "sourceware.org",
+                "user": "",
+                "port": "",
+                "owner": "",
+                "repo": "app/project",
+                "name": "app/project",
+                "groups": [],
+                "path": "",
+                "path_raw": "",
+                "pathname": "/git/app/project.git",
+                "branch": "",
+                "protocol": "git",
+                "protocols": ["git"],
+                "platform": "sourceware",
+            }
+        )
+    ),
+    (
+        "https",
+        (
+            "https://sourceware.org/git/app/project.git",
+            {
+                "host": "sourceware.org",
+                "resource": "sourceware.org",
+                "user": "",
+                "port": "",
+                "owner": "",
+                "repo": "app/project",
+                "name": "app/project",
+                "groups": [],
+                "path": "",
+                "path_raw": "",
+                "pathname": "/git/app/project.git",
+                "branch": "",
+                "protocol": "https",
+                "protocols": ["https"],
+                "platform": "sourceware",
+            }
+        )
+    ),
+    (
+        "ssh",
+        (
+            "ssh://sourceware.org/git/app/project.git",
+            {
+                "host": "sourceware.org",
+                "resource": "sourceware.org",
+                "user": "",
+                "port": "",
+                "owner": "",
+                "repo": "app/project",
+                "name": "app/project",
+                "groups": [],
+                "path": "",
+                "path_raw": "",
+                "pathname": "/git/app/project.git",
+                "branch": "",
+                "protocol": "ssh",
+                "protocols": ["ssh"],
+                "platform": "sourceware",
+            }
+        )
+    ),
 )
 
 INVALID_PARSE_URLS = (
