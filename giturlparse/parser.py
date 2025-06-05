@@ -18,7 +18,7 @@ SUPPORTED_ATTRIBUTES = (
 )
 
 
-def parse(url, check_domain=True):
+def parse(url, check_domain=True, platforms=None):
     # Values are None by default
     parsed_info = defaultdict(lambda: None)
     parsed_info["port"] = ""
@@ -29,7 +29,10 @@ def parse(url, check_domain=True):
     # Defaults to all attributes
     map(parsed_info.setdefault, SUPPORTED_ATTRIBUTES)
 
-    for name, platform in PLATFORMS:
+    if platforms is None:
+        platforms = PLATFORMS
+
+    for name, platform in platforms:
         for protocol, regex in platform.COMPILED_PATTERNS.items():
             # print(name, protocol, regex)
             # Match current regex against URL

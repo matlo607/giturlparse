@@ -979,6 +979,33 @@ VALID_PARSE_URLS = (
     ),
 )
 
+VALID_PARSE_URLS_CUSTOM_PLATFORM = (
+    (
+        "SSH",
+        (
+            "ssh://foo.com:29418/app/project",
+            {
+                "host": "foo.com",
+                "resource": "foo.com",
+                "user": "git",
+                "port": "29418",
+                "owner": "app",
+                "repo": "app/project",
+                "name": "app/project",
+                "groups": [],
+                "path": "",
+                "path_raw": "",
+                "pathname": "/app/project",
+                "branch": "",
+                "username": "",
+                "protocol": "ssh",
+                "protocols": ["ssh"],
+                "platform": "gerrit",
+            },
+        ),
+    ),
+)
+
 INVALID_PARSE_URLS = (
     ("SSH No Username", "@github.com:Org/Repo.git"),
     ("SSH No Repo", "git@github.com:Org"),
@@ -989,8 +1016,8 @@ INVALID_PARSE_URLS = (
 
 # Here's our "unit tests".
 class UrlParseTestCase(unittest.TestCase):
-    def _test_valid(self, url, expected):
-        p = parse(url)
+    def _test_valid(self, url, expected, platforms=None):
+        p = parse(url, True, platforms)
         self.assertTrue(p.valid, "%s is not a valid URL" % url)
         for k, v in expected.items():
             attr_v = getattr(p, k)
@@ -999,6 +1026,16 @@ class UrlParseTestCase(unittest.TestCase):
     def test_valid_urls(self):
         for _test_type, data in VALID_PARSE_URLS:
             self._test_valid(*data)
+
+    def test_valid_urls_with_custom_platforms(self):
+        from giturlparse.platforms import GerritPlatform
+        gerrit_platform = GerritPlatform()
+        gerrit_platform.DOMAINS = ("foo.com",)
+        custom_platforms = [
+            ("gerrit", gerrit_platform),
+        ]
+        for _test_type, data in VALID_PARSE_URLS_CUSTOM_PLATFORM:
+            self._test_valid(*data, platforms=custom_platforms)
 
     def _test_invalid(self, url):
         p = parse(url)
