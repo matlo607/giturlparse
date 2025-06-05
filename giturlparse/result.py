@@ -67,6 +67,13 @@ class GitUrlParsed:
     def format(self, protocol):  # noqa : A0003
         """Reformat URL to protocol."""
         items = copy(self._parsed)
+        if hasattr(self, "username"):
+            items["username_at"] = "%s@" % self.username if self.username else ""
+        if protocol == "https" and \
+           hasattr(self, "authprefix") and \
+           hasattr(self, "username") and not self.username:
+            items["authprefix"] = ""
+        items["colon_port"] = ":%s" % self.port if self.port else ""
         items["port_slash"] = "%s/" % self.port if self.port else ""
         items["groups_slash"] = "%s/" % self.groups_path if self.groups_path else ""
         items["dot_git"] = "" if items["repo"].endswith(".git") else ".git"
@@ -123,6 +130,10 @@ class GitUrlParsed:
     @property
     def gitlab(self):
         return self.platform == "gitlab"
+
+    @property
+    def gerrit(self):
+        return self.platform == "gerrit"
 
     ##
     # Get data as dict

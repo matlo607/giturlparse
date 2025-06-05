@@ -763,6 +763,127 @@ VALID_PARSE_URLS = (
             },
         ),
     ),
+    # Gerrit
+    (
+        "https",
+        (
+            "https://www.gerrithub.io/owner/project",
+            {
+                "host": "www.gerrithub.io",
+                "resource": "www.gerrithub.io",
+                "user": "git",
+                "port": "29418",
+                "owner": "owner",
+                "repo": "owner/project",
+                "name": "owner/project",
+                "groups": [],
+                "path": "",
+                "path_raw": "",
+                "pathname": "/owner/project",
+                "branch": "",
+                "username": "",
+                "protocol": "https",
+                "protocols": ["https"],
+                "platform": "gerrit",
+            }
+        )
+    ),
+    (
+        "https",
+        (
+            "https://username@www.gerrithub.io/a/owner/project",
+            {
+                "host": "www.gerrithub.io",
+                "resource": "www.gerrithub.io",
+                "user": "git",
+                "port": "29418",
+                "owner": "owner",
+                "repo": "owner/project",
+                "name": "owner/project",
+                "groups": [],
+                "path": "",
+                "path_raw": "",
+                "pathname": "/a/owner/project",
+                "branch": "",
+                "username": "username",
+                "protocol": "https",
+                "protocols": ["https"],
+                "platform": "gerrit",
+            }
+        )
+    ),
+    (
+        "SSH",
+        (
+            "ssh://username@www.gerrithub.io:29418/owner/project",
+            {
+                "host": "www.gerrithub.io",
+                "resource": "www.gerrithub.io",
+                "user": "git",
+                "port": "29418",
+                "owner": "owner",
+                "repo": "owner/project",
+                "name": "owner/project",
+                "groups": [],
+                "path": "",
+                "path_raw": "",
+                "pathname": "/owner/project",
+                "branch": "",
+                "username": "username",
+                "protocol": "ssh",
+                "protocols": ["ssh"],
+                "platform": "gerrit",
+            },
+        ),
+    ),
+    (
+        "SSH",
+        (
+            "ssh://www.gerrithub.io:29418/owner/project",
+            {
+                "host": "www.gerrithub.io",
+                "resource": "www.gerrithub.io",
+                "user": "git",
+                "port": "29418",
+                "owner": "owner",
+                "repo": "owner/project",
+                "name": "owner/project",
+                "groups": [],
+                "path": "",
+                "path_raw": "",
+                "pathname": "/owner/project",
+                "branch": "",
+                "username": "",
+                "protocol": "ssh",
+                "protocols": ["ssh"],
+                "platform": "gerrit",
+            },
+        ),
+    ),
+    (
+        "https",
+        (
+            "https://gerrit.googlesource.com/project",
+            {
+                "host": "gerrit.googlesource.com",
+                "resource": "gerrit.googlesource.com",
+                "user": "git",
+                "port": "29418",
+                "owner": "",
+                "repo": "project",
+                "name": "project",
+                "groups": [],
+                "path": "",
+                "path_raw": "",
+                "pathname": "/project",
+                "branch": "",
+                "username": "",
+                "protocol": "https",
+                "protocols": ["https"],
+                "platform": "gerrit",
+            }
+        )
+    ),
 )
 
 INVALID_PARSE_URLS = (

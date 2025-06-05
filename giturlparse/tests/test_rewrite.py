@@ -38,6 +38,16 @@ REWRITE_URLS = (
     ("git@git.assembla.com:SomeRepoID.git", "git", "git://git.assembla.com/SomeRepoID.git"),
     # FriendCode HTTPS
     ("https://friendco.de/Aaron@user/test-repo.git", "https", "https://friendco.de/Aaron@user/test-repo.git"),
+    # Gerrit
+    ("https://www.gerrithub.io/owner/project", "https", "https://www.gerrithub.io/owner/project"),
+    ("https://www.gerrithub.io/owner/project", "ssh", "ssh://www.gerrithub.io:29418/owner/project"),
+    ("https://username@www.gerrithub.io/a/owner/project", "https", "https://username@www.gerrithub.io/a/owner/project"),
+    ("https://username@www.gerrithub.io/a/owner/project", "ssh", "ssh://username@www.gerrithub.io:29418/owner/project"),
+    ("ssh://username@www.gerrithub.io:29418/owner/project", "ssh", "ssh://username@www.gerrithub.io:29418/owner/project"),
+    ("ssh://username@www.gerrithub.io:29418/owner/project", "https", "https://username@www.gerrithub.io/owner/project"),
+    ("ssh://www.gerrithub.io:29418/owner/project", "ssh", "ssh://www.gerrithub.io:29418/owner/project"),
+    ("ssh://www.gerrithub.io:29418/owner/project", "https", "https://www.gerrithub.io/owner/project"),
+    ("https://gerrit.googlesource.com/project", "https", "https://gerrit.googlesource.com/project"),
     # Generic
     ("git://git.buildroot.net/buildroot", "https", "https://git.buildroot.net/buildroot.git"),
     ("https://git.buildroot.net/buildroot", "git", "git://git.buildroot.net/buildroot.git"),
